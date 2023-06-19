@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    --clr-primary-1: hsl(180, 62%, 55%);
+    --clr-primary-2: hsl(0, 78%, 62%);
+    --clr-primary-3: hsl(34, 97%, 64%);
+    --clr-primary-4: hsl(212, 86%, 64%);
+    --clr-neutral-1: hsl(0, 0%, 98%);
+    --clr-neutral-2: hsl(229, 6%, 46%);
+    --clr-neutral-3: hsl(234, 12%, 34%);
+    --clr-attribution: hsl(228, 45%, 44%);
+    --clr-shadow: hsla(212, 36%, 64%, 0.4);
+
+    --ff: 'Poppins', sans-serif;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    list-style: none;
+}
+
+picture,
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    background-color: var(--clr-neutral-1);
+    font-family: var(--ff);
+}
+
+.sr-only {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    color: var(--clr-neutral-3);
+}
+
+/* MAIN (Section) */
+.four-card {
+    display: grid;
+    gap: 6.8vh;
+    padding: 0vh 8.5%;
+}
+
+.four-card header {
+    text-align: center;
+}
+
+.title {
+    font-size: max(1.55rem, 3.25vw);
+    font-weight: 200;
+    color: var(--clr-neutral-3);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.title span {
+    display: block;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--clr-neutral-2);
+    line-height: 1.65;
+}
+
+.tools-list {
+    display: grid;
+    gap: 1.85rem
+}
+
+.card {
+    display: grid;
+    gap: 0.9rem;
+    box-shadow: 0 1rem 1.5rem -0.5rem var(--clr-shadow);
+    border-radius: 0.5rem;
+    padding: 1.75rem;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--clr-neutral-3);
+}
+
+.card p {
+    font-size: 0.82rem;
+    color: var(--clr-neutral-2);
+    line-height: 1.7;
+}
+
+.card img {
+    margin-top: 1.55rem;
+    justify-self: end;
+    width: 4rem;
+    height: 4rem;
+}
+
+.card:nth-child(1) {
+    border-top: 4px solid var(--clr-primary-1);
+}
+
+.card:nth-child(2) {
+    border-top: 4px solid var(--clr-primary-2);
+}
+
+.card:nth-child(3) {
+    border-top: 4px solid var(--clr-primary-3);
+}
+
+.card:nth-child(4) {
+    border-top: 4px solid var(--clr-primary-4);
+}
+
+@media screen and (min-width: 40rem) {
+    .description {
+        padding: 0 15%;
+    }
+
+    .tools-list {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'sup team'
+            'karma calc';
+    }
+
+    .card:nth-child(1) {
+        grid-area: sup;
+    }
+
+    .card:nth-child(2) {
+        grid-area: team;
+    }
+
+    .card:nth-child(3) {
+        grid-area: karma;
+    }
+
+    .card:nth-child(4) {
+        grid-area: calc;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 55rem) {
+    .four-card {
+        max-width: 83.6rem;
+        margin-top: 1.25rem;
+    }
+
+    .title {
+        font-size: min(3.25vw, 2.3rem);
+    }
+
+    .description {
+        padding: 0 27%;
+    }
+
+    .tools-list {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            'sup team calc'
+            'sup karma calc';
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(4) {
+        align-self: center;
+    }
+}
+
+/* FOOTER */
+.attribution {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--clr-neutral-3);
+}
+
+.attribution a {
+    color: var(--clr-attribution);
+}
+
+@media screen and (min-width: 55rem) and (min-height: 55rem) {
+    .attribution {
+        position: fixed;
+        bottom: 0.5rem;
+        justify-self: center;
+    }
+}
+
+/* HEADER */
+body>header {
+    text-align: center;
+}
+
+@media screen and (min-width: 55rem) and (min-height: 55rem) {
+    body>header {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+/* (Theme switcher) */
+.dark-mode {
+    --clr-neutral-1: hsl(0, 0%, 12%);
+    --clr-neutral-2: hsl(229, 6%, 76%);
+    --clr-neutral-3: hsl(234, 12%, 84%);
+    --clr-attribution: hsl(228, 45%, 64%);
+    --clr-shadow: hsla(212, 36%, 64%, 0.2);
+}
+
+.theme-switcher {
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
